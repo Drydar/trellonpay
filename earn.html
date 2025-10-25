@@ -74,10 +74,15 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 8px white;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
+  
+  .task-info {
+    display: flex;
+    flex-direction: column;
+  }
 
     .task-info h3 {
       color: yellowgreen;
@@ -91,13 +96,14 @@
     }
 
     .earn-btn {
-      background: #007bff;
-      color: #fff;
+      background: #eef3ff;
+      color: black;
       border: none;
       padding: 8px 14px;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1em;
+      width: 20px;
     }
 
     .earn-btn:hover { background: #005dc0; }
@@ -130,8 +136,8 @@
 
     @media (max-width: 600px) {
       header h1 { font-size: 1em; }
-      .task-card { flex-direction: column; align-items: flex-start; }
-      .earn-btn { margin-top: 10px; width: 100%; text-align: center; }
+      .task-card { display: flex; flex-direction: row; align-items: center; justify-conter: space-between;}
+      .earn-btn { margin-top: 1px; width: 110px; aspect-ratio: 2/1; text-align: center; }
     }
   </style>
 </head>
@@ -156,7 +162,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>Ad Video 1</h3>
-          <p>Duration: 15 seconds — Earn 5 Points</p>
+          <p>15 seconds ad — Earn 5 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(5)">Watch & Earn</button>
       </div>
@@ -164,7 +170,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>Ad Video 2</h3>
-          <p>Duration: 30 seconds — Earn 10 Points</p>
+          <p>30 seconds ad — Earn 10 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(10)">Watch & Earn</button>
       </div>
@@ -172,7 +178,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>Ad Video 3</h3>
-          <p>Duration: 1 minute — Earn 20 Points</p>
+          <p>1 minute ad — Earn 20 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(20)">Watch & Earn</button>
       </div>
@@ -183,7 +189,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>TikTok Challenge</h3>
-          <p>Upload a 10s video using our hashtag — Earn 50 Points</p>
+          <p>Upload a 10s video using<br>our hashtag — Earn 50 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(50)">Do Task</button>
       </div>
@@ -191,7 +197,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>YouTube Comment Task</h3>
-          <p>Comment on a sponsored video — Earn 40 Points</p>
+          <p>Comment on a sponsored video<br>Earn 40 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(40)">Do Task</button>
       </div>
@@ -199,7 +205,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>Facebook Share</h3>
-          <p>Share a promotional post — Earn 25 Points</p>
+          <p>Share a promotional post<br>Earn 25 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(25)">Do Task</button>
       </div>
@@ -207,7 +213,7 @@
       <div class="task-card">
         <div class="task-info">
           <h3>Survey Participation</h3>
-          <p>Complete a 2-minute survey — Earn 60 Points</p>
+          <p>Complete a 2-minute survey<br>Earn 60 Points</p>
         </div>
         <button class="earn-btn" onclick="earnPoints(60)">Start Survey</button>
       </div>
