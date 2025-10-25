@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrellonPay | Earn</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: linear-gradient(135deg, #081229, #162447); display: flex; flex-direction: column; height: 100vh; }
+
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+  #logo {
+    width: 150px;
+  }
+
+    header h1 { color: #007bff; font-size: 1.2em; }
+    .user-id { background: #eef3ff; padding: 6px 10px; border-radius: 6px; font-size: 0.9em; }
+
+    /* TOP NAV (tabs) */
+    .top-tabs {
+      display: flex;
+      background: rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tab-btn {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      font-weight: 500;
+      color: yellowgreen;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tab-btn.active {
+      color: black;
+      border-bottom: 2px solid gray;
+      background: #eef3ff;
+    }
+
+    /* CONTENT */
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      gap: 10px;
+    }
+
+    .task-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .task-info h3 {
+      color: yellowgreen;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+    }
+
+    .task-info p {
+      font-size: 1.11em;
+      color: white;
+    }
+
+    .earn-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .earn-btn:hover { background: #005dc0; }
+
+    /* NAVIGATION */
+    nav {
+      background: #eef3ff;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      font-size: 0.9em;
+      text-align: center;
+      flex: 1;
+      transition: color 0.3s;
+    }
+
+    nav a.active, nav a:hover {
+      color: yellowgreen;
+      font-weight: 800;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1em; }
+      .task-card { flex-direction: column; align-items: flex-start; }
+      .earn-btn { margin-top: 10px; width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" id="logo">
+    <!--<h1>TrellonPay</h1>-->
+    <div class="user-id">User ID: TP-928374</div>
+  </header>
+
+  <!-- Top tabs -->
+  <div class="top-tabs">
+    <div class="tab-btn active" id="adsTab">Watch Ads</div>
+    <div class="tab-btn" id="tasksTab">Perform Tasks</div>
+  </div>
+
+  <main>
+    <!-- WATCH ADS LIST -->
+    <div id="adsSection">
+      <div class="task-card">
+        <div class="task-info">
+          <h3>Ad Video 1</h3>
+          <p>Duration: 15 seconds — Earn 5 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(5)">Watch & Earn</button>
+      </div>
+
+      <div class="task-card">
+        <div class="task-info">
+          <h3>Ad Video 2</h3>
+          <p>Duration: 30 seconds — Earn 10 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(10)">Watch & Earn</button>
+      </div>
+
+      <div class="task-card">
+        <div class="task-info">
+          <h3>Ad Video 3</h3>
+          <p>Duration: 1 minute — Earn 20 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(20)">Watch & Earn</button>
+      </div>
+    </div>
+
+    <!-- PERFORM TASKS LIST -->
+    <div id="tasksSection" style="display:none;">
+      <div class="task-card">
+        <div class="task-info">
+          <h3>TikTok Challenge</h3>
+          <p>Upload a 10s video using our hashtag — Earn 50 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(50)">Do Task</button>
+      </div>
+
+      <div class="task-card">
+        <div class="task-info">
+          <h3>YouTube Comment Task</h3>
+          <p>Comment on a sponsored video — Earn 40 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(40)">Do Task</button>
+      </div>
+
+      <div class="task-card">
+        <div class="task-info">
+          <h3>Facebook Share</h3>
+          <p>Share a promotional post — Earn 25 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(25)">Do Task</button>
+      </div>
+
+      <div class="task-card">
+        <div class="task-info">
+          <h3>Survey Participation</h3>
+          <p>Complete a 2-minute survey — Earn 60 Points</p>
+        </div>
+        <button class="earn-btn" onclick="earnPoints(60)">Start Survey</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom navigation -->
+  <nav>
+    <style>
+    nav .btm_item {
+    flex: 1;
+  }
+    
+    .btm_item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #home {width: 42px}
+    #earn {width: 30px}
+    #profile {width:30px}
+    
+    .bottom {
+      width: 30px
+    }
+    </style>
+    <div class="btm_item" onclick="location.href='index.html';">
+      <img src=home.png id=home>
+      <a>Home</a>
+    </div>
+    <div class="btm_item" onclick="location.href='earn.html';">
+      <img src=earn.png class=bottom>
+      <a class="active">Earn</a>
+    </div>
+    <div class="btm_item" onclick="location.href='profile.html';">
+      <img src=profile.png class=bottom>
+      <a>Profile</a>
+    </div>
+  </nav>
+
+  <script>
+    const adsTab = document.getElementById('adsTab');
+    const tasksTab = document.getElementById('tasksTab');
+    const adsSection = document.getElementById('adsSection');
+    const tasksSection = document.getElementById('tasksSection');
+
+    // Tab switching
+    adsTab.addEventListener('click', () => {
+      adsTab.classList.add('active');
+      tasksTab.classList.remove('active');
+      adsSection.style.display = 'block';
+      tasksSection.style.display = 'none';
+    });
+
+    tasksTab.addEventListener('click', () => {
+      tasksTab.classList.add('active');
+      adsTab.classList.remove('active');
+      tasksSection.style.display = 'block';
+      adsSection.style.display = 'none';
+    });
+
+    // Demo earn function
+    let totalPoints = 0;
+    function earnPoints(points) {
+      totalPoints += points;
+      alert(`+${points} points earned! Total: ${totalPoints}`);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrellonPay | Profile</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: linear-gradient(135deg, #081229, #162447); display: flex; flex-direction: column; height: 100vh; }
+
+    header { background: rgba(255, 255, 255, 0.08); box-shadow: 0 2px 6px rgba(0,0,0,0.05); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: #007bff; font-size: 1.2em; }
+    .user-id { background: #eef3ff; padding: 6px 10px; border-radius: 6px; }
+
+    main {display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; flex: 1; padding: 25px 20px; overflow-y: auto; }
+    main h1 {
+      color: white}
+  
+  #logo {
+    width: 150px;
+  }
+  
+  #avatar {
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px yellowgreen;
+  }
+  
+  .profile_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    width: 100%;
+  }
+  
+  .detail {
+    display: flex;  
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.08);
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 14px;
+    border-radius: 6px;
+    border:none;
+    box-shadow: 0 1px 4px gray;
+    color: white;
+  }
+  
+  .withdraw {
+    width: 100%;
+    padding: 16px 14px;
+    background: linear-gradient(155deg, yellowgreen, white);
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 400;
+    margin-top: 60px;
+    transition: 0.2s ease-in;
+  }
+  .withdraw:active {
+    scale: 0.95;
+  }
+
+    .profile-card h2 { color: #333; margin-bottom: 15px; text-align: center; }
+    .profile-info { margin-bottom: 15px; color: #555; }
+    .profile-info strong { color: #007bff; }
+
+    .logout-btn {
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .logout-btn:active { background: #d43b3b; scale: 0.9;}
+
+    nav { background: #eef3ff; box-shadow: 0 -2px 6px rgba(0,0,0,0.05); display: flex; justify-content: space-around; padding: 10px 0; }
+    nav a { text-decoration: none; color: #555; font-size: 0.9em; flex: 1; text-align: center; }
+    nav a.active, nav a:hover { color: yellowgreen; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" id="logo">
+    <div class="user-id">User ID: TP-928374</div>
+  </header>
+  
+
+  <main>
+    <h1>User Profile</h1>
+    <img src="avatar.jpg" id="avatar">
+    <h1>Chekwube John</h1>
+    <div class="profile_container">
+      <div class="detail">
+        <h3>Earned Points:</h3>
+        <h3>₦<span id="earnedPoints">2,340</span></h3>
+      </div>
+      <button class="withdraw" id="showWithdraw">Withdraw Earnings</button>
+      <button class="logout-btn">Logout</button>
+    </div>
+  </main>
+
+  <nav>
+    <style>
+    nav .btm_item {
+    flex: 1;
+  }
+    
+    .btm_item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #home {width: 42px}
+    #earn {width: 30px}
+    #profile {width:30px}
+    
+    .bottom {
+      width: 30px
+    }
+    
+     /* Withdraw Container Animation */
+    .withdraw-container {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: scale(0.9) translateY(40px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+    }
+
+    .withdraw-container.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    .withdraw-card {
+      background: rgba(255, 255, 255, 0.4);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .close-btn {
+      float: right;
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      color: #1e1e2f;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 15px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      cursor: pointer;
+      font-weight: 500;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .tab.active {
+      background: #1e1e2f;
+      color: white;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    form input,
+    form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #1e1e2f;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #343456;
+    }
+
+    .hidden {
+      display: none;
+    }
+    </style>
+    <div class="btm_item" onclick="location.href='index.html';">
+      <img src=home.png id=home>
+      <a>Home</a>
+    </div>
+    <div class="btm_item" onclick="location.href='earn.html';">
+      <img src=earn.png class=bottom>
+      <a>Earn</a>
+    </div>
+    <div class="btm_item" onclick="location.href='profile.html';">
+      <img src=profile.png class=bottom>
+      <a class="active">Profile</a>
+    </div>
+  </nav>
+  
+  <div class="withdraw-container" id="withdrawContainer">
+      <div class="withdraw-card">
+        <button class="close-btn" id="closeWithdraw">&times;</button>
+        <h3 style="margin-bottom: 15px;">Select Withdrawal Method</h3>
+
+        <div class="tabs">
+          <div class="tab active" data-target="airtime">Airtime</div>
+          <div class="tab" data-target="bank">Bank</div>
+          <div class="tab" data-target="studyPro">To StudyPRO</div>
+        </div>
+
+        <!-- Airtime Withdraw -->
+        <form id="airtime" class="withdraw-form">
+          <label>Network</label>
+          <select>
+            <option>Select network</option>
+            <option>MTN</option>
+            <option>Airtel</option>
+            <option>Glo</option>
+            <option>9Mobile</option>
+          </select>
+
+          <label>Phone Number</label>
+          <input type="text" placeholder="Enter phone number" required />
+
+          <label>Amount (₦)</label>
+          <input type="number" id="airtimeAmount" placeholder="Minimum ₦100" required />
+
+          <button type="button" onclick="withdraw('airtime')">Withdraw Airtime</button>
+        </form>
+
+        <!-- Bank Withdraw -->
+        <form id="bank" class="withdraw-form hidden">
+          <label>Bank Name</label>
+          <select>
+            <option>Select bank</option>
+            <option>Access Bank</option>
+            <option>GTBank</option>
+            <option>UBA</option>
+            <option>First Bank</option>
+            <option>Zenith Bank</option>
+          </select>
+
+          <label>Account Number</label>
+          <input type="text" placeholder="Enter account number" required />
+
+          <label>Amount (₦)</label>
+          <input type="number" id="bankAmount" placeholder="Minimum ₦100" required />
+
+          <button type="button" onclick="withdraw('bank')">Withdraw to Bank</button>
+        </form>
+        
+        <form id="studyPro" class="withdraw-form hidden">
+          <label>Your StudyPRO ID</label>
+          <input type="text" placeholder="From your StudyPRO dashboard" required>
+          <label>Amount (₦)</label>
+          <input type="number" id="studyproAmount" placeholder="Minimum ₦100" required />
+
+          <button type="button" onclick="withdraw('studypro')">Withdraw to StudyPRO</button>
+        </form>
+      </div>
+    </div>
+  <script>
+    const showBtn = document.getElementById("showWithdraw");
+    const withdrawContainer = document.getElementById("withdrawContainer");
+    const closeBtn = document.getElementById("closeWithdraw");
+    const tabs = document.querySelectorAll(".tab");
+    const forms = document.querySelectorAll(".withdraw-form");
+
+    // Open withdraw form with animation
+    showBtn.addEventListener("click", () => {
+      withdrawContainer.classList.add("show");
+      showBtn.style.display = "none";
+    });
+
+    // Close withdraw form with animation
+    closeBtn.addEventListener("click", () => {
+      withdrawContainer.classList.remove("show");
+      setTimeout(() => {
+        showBtn.style.display = "inline-block";
+      }, 400); // wait for animation to complete
+    });
+
+    // Handle tab switching
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        forms.forEach(f => f.classList.add("hidden"));
+        document.getElementById(tab.dataset.target).classList.remove("hidden");
+      });
+    });
+
+    // Withdraw validation
+    function withdraw(type) {
+      const amount = type === "airtime"
+        ? document.getElementById("airtimeAmount").value
+        : document.getElementById("bankAmount").value;
+
+      if (amount < 100) {
+        alert("Minimum withdrawal amount is ₦100");
+        return;
+      }
+
+      alert(`Your ${type} withdrawal of ₦${amount} has been submitted successfully!`);
+    }
+  </script>
+</body>
+</html>

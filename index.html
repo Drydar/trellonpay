@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrellonPay | Home</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: linear-gradient(135deg, #081229, #162447);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: space-between;
+      color: white;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+  #logo {
+    width: 150px;
+  }
+
+    header h1 { color: #007bff; font-size: 1.2em; }
+    .user-id { background: #eef3ff; padding: 6px 10px; border-radius: 6px; font-size: 0.9em; color: #333; }
+
+    main { flex: 1; padding: 25px 20px; overflow-y: auto; }
+
+    h2 { color: yellowgreen; font-size: 1.3em; margin-bottom: 10px; }
+    p { color: #white; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
+
+    .section {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px white;
+    }
+
+    .ref-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #eef3ff;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.9em;
+      color: black;
+    }
+
+    .copy-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8em;
+    }
+    .copy-btn:hover { background: #005dc0; }
+
+    nav {
+      background: #eef3ff;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    nav a  {
+      text-decoration: none;
+      color: #555;
+      font-size: 0.9em;
+      text-align: center;
+      flex: 1;
+      transition: color 0.3s;
+    }
+
+    nav a.active, nav a:hover {
+      color: yellowgreen;
+      font-weight: 800;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1em; }
+      nav a { font-size: 0.85em; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" id="logo">
+    <!--<h1>TrellonPay</h1>-->
+    <div class="user-id">User ID: TP-928374</div>
+  </header>
+
+  <main>
+    <div class="section">
+      <h2>Rules</h2>
+      <p>Watch short ads daily to earn points. Avoid using multiple accounts or spam activity — violators may lose rewards.</p>
+    </div>
+
+    <div class="section">
+      <h2>How to Earn</h2>
+      <p>Earn points by watching ads and completing daily tasks. Each ad adds points to your wallet. Consistency boosts rewards.</p>
+    </div>
+
+    <div class="section">
+      <h2>Withdraw Earnings</h2>
+      <p>Withdraw once you reach the minimum balance. Payments are processed securely to your wallet or bank account.</p>
+    </div>
+
+    <div class="section">
+      <h2>Referral Link</h2>
+      <div class="ref-link">
+        <span>https://trellonpay.com/ref/TP928374</span>
+        <button class="copy-btn" onclick="copyRef()">Copy</button>
+      </div>
+    </div>
+  </main>
+
+  <nav>
+    <style>
+    nav .btm_item {
+    flex: 1;
+  }
+    
+    .btm_item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #home {width: 42px}
+    #earn {width: 30px}
+    #profile {width:30px}
+    
+    .bottom {
+      width: 30px
+    }
+    </style>
+    <div class="btm_item" onclick="location.href='index.html';">
+      <img src=home.png id=home>
+      <a class="active">Home</a>
+    </div>
+    <div class="btm_item" onclick="location.href='earn.html';">
+      <img src=earn.png class=bottom>
+      <a>Earn</a>
+    </div>
+    <div class="btm_item" onclick="location.href='profile.html';">
+      <img src=profile.png class=bottom>
+      <a>Profile</a>
+    </div>
+  </nav>
+
+  <script>
+    function copyRef() {
+      const refText = "https://trellonpay.com/ref/TP928374";
+      navigator.clipboard.writeText(refText);
+      alert("Referral link copied!");
+    }
+  </script>
+</body>
+</html>
