@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrellonPay?auth</title>
+  <script src="app.js"></script>
   <style>
   @font-face {
   font-family: "Poppins";
@@ -150,6 +151,7 @@
   </style>
 </head>
 <body>
+  <div id="message"></div>
   <div id="logo_body">
     <img src="logo.png" class="img_fluid" id="logo">
   </div>
@@ -163,12 +165,12 @@
     <form id="loginForm" class="form active">
       <h2>Welcome Back...</h2>
       <div class="input-group">
-        <input type="email" placeholder="Email Address" required />
+        <input id="loginEmail"type="email" placeholder="Email Address" required />
       </div>
       <div class="input-group">
-        <input type="password" placeholder="Password" required />
+        <input id="loginPassword" type="password" placeholder="Password" required />
       </div>
-      <button type="submit" onclick="location.href='index.html';">Login</button>
+      <button type="submit" id="loginBtn">Login</button>
 
       <div class="alt-login">
         <button type="button">Google</button>
@@ -180,15 +182,15 @@
     <form id="signupForm" class="form">
       <h2>Create Account</h2>
       <div class="input-group">
-        <input type="text" placeholder="Full Name" required />
+        <input id="signupFullName"type="text" placeholder="Full Name" required />
       </div>
       <div class="input-group">
-        <input type="email" placeholder="Email Address" required />
+        <input id="signupEmail" type="email" placeholder="Email Address" required />
       </div>
       <div class="input-group">
-        <input type="password" placeholder="Password" required />
+        <input id="signupPassword" type="password" placeholder="Password" required />
       </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit" id="signupBtn">Sign Up</button>
 
       <div class="alt-login">
         <button type="button">Google</button>
