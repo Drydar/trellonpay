@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TrellonPay | Profile</title>
+  <script type="module" src="trellonpay.js"></script>
   <style>
   @font-face {
   font-family: "Poppins";
@@ -23,7 +24,7 @@
       top: 0;
       width: 100%;
     } 
-  header h1 { color: #007bff; font-size: 1.2em; }
+  h1 { color: #007bff; font-size: 1.4em; }
     .user-id { background: #eef3ff; padding: 6px 10px; border-radius: 6px; }
 
     main {display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; flex: 1; padding: 25px 20px; overflow-y: auto; }
@@ -91,6 +92,14 @@
       cursor: pointer;
       margin-top: 20px;
     }
+  #userEmail {
+  display: inline-block;
+  max-width: 180px;      /* adjust width to your layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
 
     .logout-btn:active { background: #d43b3b; scale: 0.9;}
 
@@ -104,21 +113,21 @@
 <body>
   <header>
     <img src="logo.png" id="logo">
-    <div class="user-id">User ID: TP-928374</div>
+    <div class="user-id"><p>ID: <span id="userEmail"></span></p></div>
   </header>
   
 
   <main>
     <h1>User Profile</h1>
     <img src="avatar.jpg" id="avatar">
-    <h1>Chekwube John</h1>
+    <h1 id="fullName"></h1>
     <div class="profile_container">
       <div class="detail">
-        <h3>Earned Points:</h3>
-        <h3>₦<span id="earnedPoints">2,340</span></h3>
+        <h3>Wallet Balance:</h3>
+        <h3>₦<span id="pointsDisplay"></span></h3>
       </div>
       <button class="withdraw" id="showWithdraw">Withdraw Earnings</button>
-      <button class="logout-btn">Logout</button>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
     </div>
   </main>
 

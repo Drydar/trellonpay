@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrellonPay</title>
-  <script type="module" src="trellon.js"></script>
+  <title>TrellonPay | Home</title>
+  <script src="trellonpay.js"></script>
   <style>
   @font-face {
   font-family: "Poppins";
@@ -21,6 +21,15 @@
       color: white;
     }
 
+  #userEmail {
+  display: inline-block;
+  max-width: 180px;      /* adjust width to your layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+  
     header {
       background: rgb(10, 10, 10);
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -32,6 +41,11 @@
       top: 0;
       width: 100%;
     }
+  
+  #userIdDisplay {
+    font-size: 20px;
+    color: black;
+  }
   
   #logo {
     width: 150px;
@@ -45,7 +59,7 @@
     main { margin-top: 60px; margin-bottom: 120px; flex: 1; padding: 25px 20px; overflow-y: auto; }
 
     h2 { color: yellowgreen; font-size: 1.3em; margin-bottom: 10px; }
-    p { color: white; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
+    p { color: #white; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
 
     .section {
       background: rgba(255, 255, 255, 0.08);
@@ -113,7 +127,7 @@
   <header>
     <img src="logo.png" id="logo">
     <!--<h1>TrellonPay</h1>-->
-    <div class="user-id">User ID: TP-928374</div>
+    <div class="user-id"><p>ID: <span id="userEmail"></span></p></div>
   </header>
 
   <main>
