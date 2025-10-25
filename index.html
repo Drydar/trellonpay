@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrellonPay | Home</title>
+  <title>TrellonPay</title>
   <script src="trellonpay.js"></script>
   <style>
   @font-face {
@@ -20,15 +20,6 @@
       justify-content: space-between;
       color: white;
     }
-
-  #userEmail {
-  display: inline-block;
-  max-width: 180px;      /* adjust width to your layout */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-}
   
     header {
       background: rgb(10, 10, 10);
@@ -42,20 +33,13 @@
       width: 100%;
     }
   
-  #userIdDisplay {
-    font-size: 20px;
-    color: black;
-  }
-  
   #logo {
-    width: 150px;
+    width: 170px;
   }
 
     header h1 { color: #007bff; font-size: 1.2em; 
       
     }
-    .user-id { background: #eef3ff; padding: 6px 10px; border-radius: 6px; font-size: 0.9em; color: #333; }
-
     main { margin-top: 60px; margin-bottom: 120px; flex: 1; padding: 25px 20px; overflow-y: auto; }
 
     h2 { color: yellowgreen; font-size: 1.3em; margin-bottom: 10px; }
@@ -126,8 +110,6 @@
 <body>
   <header>
     <img src="logo.png" id="logo">
-    <!--<h1>TrellonPay</h1>-->
-    <div class="user-id"><p>ID: <span id="userEmail"></span></p></div>
   </header>
 
   <main>
