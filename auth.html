@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TrellonPay?auth</title>
-  <script src="app.js"></script>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="icon" href="favicon.png" type="images/png">
+  <script type="module" src="trellon.js"></script>
   <style>
   @font-face {
   font-family: "Poppins";
@@ -52,13 +54,14 @@
       padding: 10px 0;
       cursor: pointer;
       font-weight: 600;
-      color: #888;
+      color: yellowgreen;
       transition: color 0.3s, border-color 0.3s;
     }
 
     .tab.active {
-      color: #007bff;
-      border-bottom: 2px solid #007bff;
+      color:black;
+      border-bottom: 2px solid #4093ec;
+      background: linear-gradient(140deg, white, gray);
     }
 
     .form {
@@ -88,7 +91,7 @@
 
     .input-group input {
       width: 100%;
-      padding: 12px 14px;
+      padding: 9px 11px;
       border: 1px solid #ccc;
       border-radius: 8px;
       outline: none;
@@ -97,8 +100,7 @@
     }
 
     .input-group input:focus {
-      border-color: #007bff;
-      border: 3px solid blue;
+      border: 3px solid rgba(54, 104, 240, 0.815);
       outline: none;
     }
 
@@ -165,7 +167,7 @@
     <form id="loginForm" class="form active">
       <h2>Welcome Back...</h2>
       <div class="input-group">
-        <input id="loginEmail"type="email" placeholder="Email Address" required />
+        <input id="loginEmail" type="email" placeholder="Email Address" required />
       </div>
       <div class="input-group">
         <input id="loginPassword" type="password" placeholder="Password" required />
