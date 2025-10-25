@@ -17,22 +17,27 @@
     }
 
     header {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgb(10, 10, 10);
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: fixed;  
+      top: 0;
+      width: 100%;
     }
   
   #logo {
     width: 150px;
   }
 
-    header h1 { color: #007bff; font-size: 1.2em; }
+    header h1 { color: #007bff; font-size: 1.2em; 
+      
+    }
     .user-id { background: #eef3ff; padding: 6px 10px; border-radius: 6px; font-size: 0.9em; color: #333; }
 
-    main { flex: 1; padding: 25px 20px; overflow-y: auto; }
+    main { margin-top: 60px; flex: 1; padding: 25px 20px; overflow-y: auto; }
 
     h2 { color: yellowgreen; font-size: 1.3em; margin-bottom: 10px; }
     p { color: #white; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
@@ -74,6 +79,9 @@
       justify-content: space-around;
       align-items: center;
       padding: 10px 0;
+      position: fixed;  
+      bottom: 0;
+      width: 100%;
     }
 
     nav a  {
