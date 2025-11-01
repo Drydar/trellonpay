@@ -284,10 +284,11 @@ function loadUserWithdrawals() {
       return;
     }
 
+    // Fetch all withdrawals for the user without ordering
     const q = query(
-  collection(db, "withdrawals"),
-  where("email", "==", user.email)
-);
+      collection(db, "withdrawals"),
+      where("email", "==", user.email)
+    );
 
     onSnapshot(q, (snapshot) => {
       if (snapshot.empty) {
@@ -298,11 +299,23 @@ function loadUserWithdrawals() {
         return;
       }
 
+      // Collect data into an array
+      let withdrawals = [];
+      snapshot.forEach((docSnap) => {
+        withdrawals.push(docSnap.data());
+      });
+
+      // Sort by date in descending order (most recent first)
+      withdrawals.sort((a, b) => {
+        const dateA = a.date?.toDate ? a.date.toDate() : new Date(0);
+        const dateB = b.date?.toDate ? b.date.toDate() : new Date(0);
+        return dateB - dateA; // Descending
+      });
+
+      // Build table HTML
       let sn = 1;
       let tableHTML = "";
-
-      snapshot.forEach((docSnap) => {
-        const w = docSnap.data();
+      withdrawals.forEach((w) => {
         const date = w.date?.toDate
           ? w.date.toDate().toLocaleString()
           : "—";
