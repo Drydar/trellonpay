@@ -127,16 +127,16 @@
         <button class="logout-btn" id="logoutBtn">Logout</button>
       </div>
       <script type="module">
-  import { logoutUser } from './backend.js';
-
-  // Attach logout function to a button
-  const logoutBtn = document.getElementById('logoutBtn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-      logoutUser(); // call your function
-    });
-  }
-</script>
+        import { logoutUser } from './backend.js';
+      
+        // Attach logout function to a button
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', () => {
+            logoutUser(); // call your function
+          });
+        }
+      </script>
     </section>
 
     <!-- WITHDRAWAL PAGE -->
@@ -144,11 +144,33 @@
       <h2>Withdraw Funds</h2>
       <p>Minimum withdrawal is 200 points</p>
       <p>Any withdrawal below 200 points will be rejected.</p>
+      <button id="historyBtn" style="margin-top: 20px; padding: 10px 20px; border: none; border-radius: 10px; background: black; color: #ff6600; font-weight: 600;">Transaction History</button>
       <button id="requestBtn" style="margin-top: 20px; padding: 10px 20px; border: none; border-radius: 10px; background: #fff; color: #ff6600; font-weight: 600;">Request Withdrawal</button>
     </section>
   </main>
   <!-- BACKDROP -->
   <div id="overlay" class="overlay"></div>
+  
+  <!--Transaction History Popup-->
+  <div id="historyPopup" class="history-popup">
+    <h3>Your Withdrawal History</h3>
+    <table border="1" style="width:100%; border-collapse:collapse; font-size: 10px; color: black;">
+      <thead style="background:#f4f4f4;">
+        <tr>
+          <th>S/N</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Details</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="userWithdrawalsTableBody">
+        <tr><td colspan="6" style="text-align:center; color:gray;">Loading...</td></tr>
+      </tbody>
+    </table>
+    <button class="close-popup" id="closeHistory">Close</button>
+  </div>
 
   <!-- WITHDRAWAL POPUP -->
   <div id="withdrawPopup" class="withdraw-popup">
@@ -286,6 +308,20 @@
         startCooldown(item, 20);
       });
     });
+  
+  //Transaction History
+    const historyBtn = document.getElementById("historyBtn");
+    const historyPopup = document.getElementById("historyPopup");
+    const closeHistory= document.getElementById("closeHistory");
+    
+    historyBtn.addEventListener("click", () => {
+      historyPopup.classList.add("show");
+    });
+
+    closeHistory.addEventListener("click", () => {
+      historyPopup.classList.remove("show");
+    });
+
   
   // WITHDRAW POPUP
     const requestBtn = document.getElementById("requestBtn");

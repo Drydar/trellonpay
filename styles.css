@@ -326,6 +326,38 @@
       background: #ff6600;
       color: #fff;
     }
+
+/*Transaction History*/
+/* Withdrawal Popup */
+    .history-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: #fff;
+      color: #ff6600;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 999;
+    }
+
+    .history-popup.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+.history-popup h3 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
   
    /* Withdrawal Popup */
     .withdraw-popup {
